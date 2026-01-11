@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RestaurantSystem.Mobile.ReservationsPage"
+             Title="Rezervarile mele">
+
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Label Text="Rezervari" FontSize="18"/>
+
+        <Button Text="Refresh" Clicked="OnRefreshClicked" />
+
+        <Label x:Name="EmptyLabel" IsVisible="False" Text="Nu exista rezervari." />
+
+        <CollectionView x:Name="ReservationsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="0,6">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding ReservationDateTime}" />
+                            <Label Text="{Binding Table}" />
+                            <Label Text="{Binding Persons}" />
+                            <Label Text="{Binding Status}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
